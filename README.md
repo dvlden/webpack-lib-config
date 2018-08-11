@@ -10,14 +10,14 @@ it is as minimal as possible. Also, it resolves the module name automatically.
 
 ## Getting started
 
-- `git clone https://github.com/dvlden/webpack-module-config.git`
+- `git clone https://github.com/dvlden/webpack-lib-config.git`
 - `npm i`
 
 
 ### Commands
 
-- `npm run dev` - build for development
-- `npm run build` - build for production
+- `npm run dev` - build for development and watch for changes
+- `npm run build` - clean output directory and build for production
 
 
 ## Important Notes

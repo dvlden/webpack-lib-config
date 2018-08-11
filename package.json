@@ -1,6 +1,6 @@
 {
-  "name": "webpack-module-config",
-  "description": "Personal Webpack configuration for module building.",
+  "name": "webpack-lib-config",
+  "description": "Personal Webpack configuration for library building.",
 
   "main": "dist/index.js",
   "version": "1.0.0",
@@ -12,9 +12,9 @@
     "build": "webpack --progress --hide-modules --mode production"
   },
 
-  "homepage": "https://github.com/dvlden/webpack-module-config#readme",
-  "bugs": "https://github.com/dvlden/webpack-module-config/issues",
-  "repository": "github:dvlden/webpack-module-config",
+  "homepage": "https://github.com/dvlden/webpack-lib-config#readme",
+  "bugs": "https://github.com/dvlden/webpack-lib-config/issues",
+  "repository": "github:dvlden/webpack-lib-config",
 
   "author": {
     "name": "Nenad Novaković",
