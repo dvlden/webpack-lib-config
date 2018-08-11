@@ -1,0 +1,46 @@
+{
+  "name": "webpack-module-config",
+  "description": "Personal Webpack configuration for module building.",
+
+  "main": "dist/index.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+
+  "scripts": {
+    "dev": "webpack --watch --progress --hide-modules --mode development",
+    "build": "webpack --progress --hide-modules --mode production"
+  },
+
+  "homepage": "https://github.com/dvlden/webpack-module-config#readme",
+  "bugs": "https://github.com/dvlden/webpack-module-config/issues",
+  "repository": "github:dvlden/webpack-module-config",
+
+  "author": {
+    "name": "Nenad Novaković",
+    "email": "n.dvlden@gmail.com",
+    "url": "https://dvl.sh/"
+  },
+
+  "keywords": [
+    "webpack",
+    "webpack-config",
+    "module-build",
+    "build-system"
+  ],
+
+  "browserslist": [
+    "last 1 major version",
+    "> 1%"
+  ],
+
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
