@@ -22,12 +22,13 @@ it is as minimal as possible. Also, it resolves the module name automatically.
 
 ## Important Notes
 
-If you cloned my repository and want to use this for modules development, before
-you push any changes to Git or Npm, make sure to update some important files.
+If you cloned my repository and want to use this for modules development, before you push any changes to Git or Npm, make sure to update some important files.
 
 - package.json
 - readme
 - license
+
+Your library name will be the name of the package from `package.json`. The package name will automatically be converted to the `camelCase` from `kebab-case`.
 
 &nbsp;
 

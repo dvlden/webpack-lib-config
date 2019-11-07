@@ -2,7 +2,10 @@ const path = require('path')
 const pkg = require('./package.json')
 
 const plugins = {
-  clean: require('clean-webpack-plugin')
+  clean: (() => {
+    const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+    return CleanWebpackPlugin
+  })(),
 }
 
 const libName = (name) => (
@@ -26,7 +29,7 @@ module.exports = {
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
-    globalObject: 'typeof self !== \'undefined\' ? self : this', // temporary, waiting for Webpack fix
+    // globalObject: 'typeof self !== \'undefined\' ? self : this', // temporary, waiting for Webpack fix
   },
 
   module: {
@@ -51,7 +54,7 @@ module.exports = {
   },
 
   plugins: [
-    new plugins.clean(['dist'])
+    new plugins.clean()
   ],
 
   devtool: ''
