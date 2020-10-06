@@ -1,5 +1,6 @@
 const path = require('path')
 const pkg = require('./package.json')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const plugins = {
   clean: require('clean-webpack-plugin').CleanWebpackPlugin
@@ -50,9 +51,7 @@ module.exports = {
       'node_modules'
     ],
     extensions: ['.js', '.ts'],
-    alias: {
-      '~': path.resolve(__dirname, 'src')
-    }
+    plugins: [new TsconfigPathsPlugin()],
   },
 
   plugins: [
