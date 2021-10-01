@@ -3,12 +3,12 @@
   "description": "Personal Webpack configuration for library building.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "webpack --watch --progress --hide-modules --mode development",
-    "build": "webpack --progress --hide-modules --mode production"
+    "dev": "webpack --watch --progress --mode development",
+    "build": "webpack --progress --mode production"
   },
   "homepage": "https://github.com/dvlden/webpack-lib-config#readme",
   "bugs": "https://github.com/dvlden/webpack-lib-config/issues",
@@ -31,15 +31,15 @@
     "> 1%"
   ],
   "devDependencies": {
-    "@babel/core": "^7.11.6",
+    "@babel/core": "^7.15.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.11.5",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "ts-loader": "^8.0.4",
-    "tsconfig-paths-webpack-plugin": "^3.3.0",
-    "typescript": "^4.0.3",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "ts-loader": "^9.2.6",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.4.3",
+    "webpack": "^5.56.0",
+    "webpack-cli": "^4.8.0"
   }
 }
