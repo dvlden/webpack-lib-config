@@ -29,7 +29,3 @@ If you cloned my repository and want to use this for modules development, before
 - license
 
 Your library name will be the name of the package from `package.json`. The package name will automatically be converted to the `camelCase` from `kebab-case`.
-
-&nbsp;
-
-> Developed by Nenad Novaković, dvlden.

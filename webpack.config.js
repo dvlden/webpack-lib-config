@@ -1,10 +1,7 @@
 const path = require('path')
 const pkg = require('./package.json')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
-const plugins = {
-  clean: require('clean-webpack-plugin').CleanWebpackPlugin
-}
+const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const libName = (name) => (
   name.replace(/@.*\//, '').split('-').map(word =>
@@ -12,55 +9,63 @@ const libName = (name) => (
   ).join('')
 )
 
-module.exports = {
-  context: path.resolve(__dirname, 'src'),
+module.exports = (env = {}, argv) => {
+  const isProduction = argv.mode === 'production'
 
-  entry: {
-    index: './index.ts'
-  },
+  return {
+    context: path.resolve(__dirname, 'src'),
 
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: 'dist/',
-    filename: '[name].js',
-    library: libName(pkg.name),
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    // umdNamedDefine: true,
-    globalObject: 'this'
-  },
+    entry: {
+      index: './index.ts'
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: 'dist/',
+      filename: '[name].js',
+      library: libName(pkg.name),
+      libraryTarget: 'umd',
+      libraryExport: 'default',
+      // umdNamedDefine: true,
+      globalObject: 'this'
+    },
 
-  resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-      'node_modules'
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          use: 'babel-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.ts$/,
+          use: 'ts-loader',
+          exclude: /node_modules/
+        }
+      ]
+    },
+
+    resolve: {
+      modules: [
+        path.resolve(__dirname, 'src'),
+        'node_modules'
+      ],
+      extensions: ['.js', '.ts'],
+      plugins: [new TSConfigPathsPlugin],
+    },
+
+    plugins: [
+      new CleanWebpackPlugin
     ],
-    extensions: ['.js', '.ts'],
-    plugins: [new TsconfigPathsPlugin()],
-  },
 
-  plugins: [
-    new plugins.clean()
-  ],
+    optimization: {
+      minimize: false
+    },
 
-  // optimization: {
-  //   minimize: false
-  // },
-
-  devtool: ''
+    devtool: (() => {
+      return isProduction
+        ? false
+        : 'eval'
+    })(),
+  }
 }
